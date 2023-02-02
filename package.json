@@ -7,13 +7,19 @@
     "dev": "wrangler pages dev --compatibility-date=2023-02-02 -- astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "wrangler pages dev ./dist",
     "astro": "astro",
-    "pages:build": "wrangler pages publish functions/ --project-name=jsconfdemo"
+    "pages:dev": "wrangler pages dev functions/ --compatibility-date=2023-02-02",
+    "pages:build": "wrangler pages publish functions/ --project-name=jsconfdemo",
+    "dev:db": "wrangler pages dev functions/ --compatibility-date=2023-02-02 --d1=COMMENTS_DB"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^6.1.1",
     "@astrojs/tailwind": "^3.0.1",
-    "astro": "^2.0.5",
+    "astro": "^2.0.6",
     "tailwindcss": "^3.2.4"
+  },
+  "devDependencies": {
+    "better-sqlite3": "^7.6.2"
   }
 }

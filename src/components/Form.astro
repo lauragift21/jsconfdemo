@@ -1,16 +1,17 @@
 ---
 ---
 
-<section class="mt-12">
+<section class='mt-6'>
   <p class='ml-auto py-4 text-xs text-center text-gray-500 dark:text-gray-400'>
-    Remember to keep the JSConf 
+    Remember to keep the JSConf
     <a
       href='https://github.com/jsconfcl/code_of_conduct'
       class='text-yellow-600 dark:text-yellow-500 font-bold hover:underline'
-      > Code of Conduct / Código de Conducta </a
-    > in mind.
+    >
+      Code of Conduct / Código de Conducta
+    </a> in mind.
   </p>
-  <form class="flex justify-center content-center">
+  <form class='flex justify-center content-center'>
     <div
       class='w-1/2 mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600'
     >
@@ -22,6 +23,16 @@
           class='w-full p-6 text-md text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400'
           placeholder='Add a comment... / Agrega un comentario...'
           required></textarea>
+      </div>
+      <div class='px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800'>
+        <label for='comment' class='sr-only'>Your name</label>
+        <input
+          type='text'
+          id='helper-text'
+          aria-describedby='helper-text-explanation'
+          class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+          placeholder='Name / Nombre'
+        />
       </div>
       <div
         class='flex items-center justify-between px-3 py-2 border-t dark:border-gray-600'
