@@ -4,13 +4,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "wrangler pages dev --compatibility-date=2023-02-02 -- astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "pages:build": "wrangler pages publish functions/ --project-name=jsconfdemo"
   },
   "dependencies": {
-    "astro": "^2.0.5"
+    "@astrojs/tailwind": "^3.0.1",
+    "astro": "^2.0.5",
+    "tailwindcss": "^3.2.4"
   }
 }
