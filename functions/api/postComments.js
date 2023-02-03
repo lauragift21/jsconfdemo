@@ -1,9 +1,14 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
   try {
-    const input = await request.json();
+    const input = await request.formData();
+    const json = {};
+
+    for (const [key, value] of input.entries()) {
+      json[key] = value;
+    }
     const uuid = crypto.randomUUID();
-    const pretty = JSON.stringify({ uuid, ...input }, null, 2);
+    const pretty = JSON.stringify({ uuid, ...json }, null, 2);
     // Add the comment to the KV store called comments_db
     await env.comments_db.put(uuid, pretty, {
       metadata: { createdAt: Date.now() },
