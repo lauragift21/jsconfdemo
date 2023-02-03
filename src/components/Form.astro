@@ -11,7 +11,7 @@
       Code of Conduct / Código de Conducta
     </a> in mind.
   </p>
-  <form method="POST" action="http://127.0.0.1:8788/api/postcomments" id="form" class='flex justify-center content-center'>
+  <form method="POST" id="form" class='flex justify-center content-center'>
     <div
       class='w-1/2 mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600'
     >
@@ -49,3 +49,33 @@
     </div>
   </form>
 </section>
+
+<script>
+  const form = document.getElementById('form')
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const comment = document.getElementById('comment').value
+    const username = document.getElementById('username').value
+    const data = {
+      comment,
+      username,
+    }
+    const res = await fetch(`${import.meta.env.PUBLIC_BASE_URL}/postcomments`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          form.reset()
+          alert('Comment posted successfully / Comentario publicado con éxito')
+        } else {
+          alert('Error posting comment / Error al publicar comentario')
+        }
+      })
+  })
+
+</script>

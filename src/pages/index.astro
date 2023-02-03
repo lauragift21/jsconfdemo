@@ -3,53 +3,61 @@ import Nav from '../components/Nav.astro';
 import Form from '../components/Form.astro';
 import Footer from '../components/Footer.astro';
 
-const response = await fetch('http://127.0.0.1:8788/api/getcomments');
+const response = await fetch('http://127.0.0.1:8788/getcomments');
 const data = await response.json();
 
-console.log(data)
+console.log(data);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Comments Dashboard</title>
-	</head>
-	<body class="dark:bg-gray-900 dark:text-white">
-		<Nav />
-		<Form />
-		<section>
-			<table>
-				<thead>
-					<tr>
-						<th>Username</th>
-						<th>Comment</th>
-					</tr>
-				</thead>
-				<tbody>
-					{data.map((comment) => (
-						<tr>
-							<td>{comment.username}</td>
-							<td>{comment.comment}</td>
-						</tr>
-					))}
-				</tbody>
-			</table>
-		</section>
-		<Footer />
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Comments Dashboard</title>
+  </head>
+  <body class='dark:bg-gray-900 dark:text-white'>
+    <Nav />
+    <Form />
+    <section>
+      <div class='my-5 relative overflow-x-auto flex justify-center content-center'>
+        <table
+          class='w-1/3 text-sm text-left text-gray-500 dark:text-gray-400'
+        >
+          <thead
+            class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'
+          >
+            <tr>
+              <th scope='col' class='px-6 py-3'> Username</th>
+              <th scope='col' class='px-6 py-3'> Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              data.map((comment) => (
+                <tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+                  <td>{comment.username}</td>
+                  <td>{comment.comment}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <Footer />
+  </body>
 </html>
 
 <style>
-	html {
-		font-family: sans-serif;
-	}
+  html {
+    font-family: sans-serif;
+  }
 
-	body {
-		min-height: 95vh;
+  body {
+    min-height: 95vh;
     display: flex;
     flex-direction: column;
-	}
+  }
 </style>

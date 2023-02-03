@@ -15,7 +15,7 @@ export async function onRequestPost(context) {
     });
     return new Response(pretty, {
       headers: {
-        'Content-Type': 'application/json;charset=utf-8',
+        'Content-Type': 'application/json',
       },
     });
   } catch (error) {
