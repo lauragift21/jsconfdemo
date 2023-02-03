@@ -4,14 +4,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "wrangler pages dev --compatibility-date=2023-02-02 -- astro dev",
+    "dev": "wrangler pages dev --compatibility-date=2023-02-02 --d1=COMMENTS_DB -- astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "wrangler pages dev ./dist",
     "astro": "astro",
-    "pages:dev": "wrangler pages dev functions/ --compatibility-date=2023-02-02",
+    "pages:dev": "wrangler pages dev functions/ --compatibility-date=2023-02-02 --local --persist",
     "pages:build": "wrangler pages publish functions/ --project-name=jsconfdemo",
-    "dev:db": "wrangler pages dev functions/ --compatibility-date=2023-02-02 --d1=COMMENTS_DB"
+    "dev:db": "wrangler pages dev functions/ --local --persist --compatibility-date=2023-02-02 --d1=COMMENTS_DB"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^6.1.1",
