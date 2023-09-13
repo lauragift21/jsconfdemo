@@ -3,10 +3,9 @@ import Nav from '../components/Nav.astro';
 import Form from '../components/Form.astro';
 import Footer from '../components/Footer.astro';
 
-// const response = await fetch('http://127.0.0.1:8788/getcomments');
-// const data = await response.json();
+const response = await fetch('http://127.0.0.1:8788/getcomments');
+const data = await response.json();
 
-// console.log(data);
 ---
 
 <html lang='en'>
@@ -29,20 +28,20 @@ import Footer from '../components/Footer.astro';
             class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'
           >
             <tr>
-              <th scope='col' class='px-6 py-3'> Username</th>
-              <th scope='col' class='px-6 py-3'> Comment</th>
+              <th scope='col' class='px-8 py-3 text-base'> Username</th>
+              <th scope='col' class='px-8 py-3 text-base'> Comment</th>
             </tr>
           </thead>
-          <!-- <tbody>
+          <tbody>
             {
               data.map((comment) => (
                 <tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-                  <td>{comment.username}</td>
-                  <td>{comment.comment}</td>
+                  <td class="px-8 py-3 text-lg text-black">{comment.username}</td>
+                  <td class="px-8 py-3 text-lg text-black">{comment.comment}</td>
                 </tr>
               ))
             }
-          </tbody> -->
+          </tbody>
         </table>
       </div>
     </section>

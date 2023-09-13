@@ -42,31 +42,32 @@
 </section>
 
 <script>
-  const form = document.getElementById('form')
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault()
-    const comment = document.getElementById('comment').value
-    const username = document.getElementById('username').value
-    const data = {
-      comment,
-      username,
+  const form = document.getElementById('form');
+  const commentInput = document.getElementById('comment') as HTMLInputElement;
+  const usernameInput = document.getElementById('username') as HTMLInputElement;
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('comment', commentInput.value);
+    formData.append('username', usernameInput.value);
+
+    try {
+      const response = await fetch('http://127.0.0.1:8788/postcomments', {
+        method: 'POST',
+        body: formData,
+      });
+      if (response.ok) {
+        alert('Comment posted successfully');
+        commentInput.value = '';
+        usernameInput.value = '';
+      } else {
+        alert('Comment not posted');
+      }
+    } catch (error) {
+      console.log(error);
     }
-    // const res = await fetch(`${import.meta.env.PUBLIC_BASE_URL}/postcomments`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.success) {
-    //       form.reset()
-    //       alert('Comment posted successfully / Comentario publicado con éxito')
-    //     } else {
-    //       alert('Error posting comment / Error al publicar comentario')
-    //     }
-    //   })
-  })
+  });
 
 </script>

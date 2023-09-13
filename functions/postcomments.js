@@ -19,8 +19,9 @@ export async function onRequestPost(context) {
       },
     });
   } catch (error) {
-    return new Response('Error parsing JSON content', {
-      status: 400,
+    console.error('Error processing the request:', error);
+    return new Response('Internal Server Error', {
+      status: 500,
     });
   }
 };
