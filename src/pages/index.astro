@@ -3,10 +3,10 @@ import Nav from '../components/Nav.astro';
 import Form from '../components/Form.astro';
 import Footer from '../components/Footer.astro';
 
-const response = await fetch('http://127.0.0.1:8788/getcomments');
-const data = await response.json();
+// const response = await fetch('http://127.0.0.1:8788/getcomments');
+// const data = await response.json();
 
-console.log(data);
+// console.log(data);
 ---
 
 <html lang='en'>
@@ -33,7 +33,7 @@ console.log(data);
               <th scope='col' class='px-6 py-3'> Comment</th>
             </tr>
           </thead>
-          <tbody>
+          <!-- <tbody>
             {
               data.map((comment) => (
                 <tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
@@ -42,7 +42,7 @@ console.log(data);
                 </tr>
               ))
             }
-          </tbody>
+          </tbody> -->
         </table>
       </div>
     </section>

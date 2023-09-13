@@ -2,15 +2,6 @@
 ---
 
 <section class='mt-6'>
-  <p class='ml-auto py-4 text-xs text-center text-gray-500 dark:text-gray-400'>
-    Remember to keep the JSConf
-    <a
-      href='https://github.com/jsconfcl/code_of_conduct'
-      class='text-yellow-600 dark:text-yellow-500 font-bold hover:underline'
-    >
-      Code of Conduct / Código de Conducta
-    </a> in mind.
-  </p>
   <form method="POST" id="form" class='flex justify-center content-center'>
     <div
       class='w-1/2 mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600'
@@ -22,7 +13,7 @@
           name="comment"
           rows='6'
           class='w-full p-6 text-md text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400'
-          placeholder='Add a comment... / Agrega un comentario...'
+          placeholder='Add a comment...'
           required></textarea>
       </div>
       <div class='px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800'>
@@ -33,7 +24,7 @@
           name="username"
           aria-describedby='username'
           class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-          placeholder='Username / Nombre'
+          placeholder='Username'
         />
       </div>
       <div
@@ -43,7 +34,7 @@
           type='submit'
           class='inline-flex items-center py-2.5 px-4 text-md font-medium text-center text-gray-900 bg-yellow-400 rounded-lg focus:ring-4 focus:ring-yellow-200 dark:focus:ring-yellow-400 hover:bg-yellow-500'
         >
-          Post comment / Publicar comentario
+          Post comment
         </button>
       </div>
     </div>
@@ -60,22 +51,22 @@
       comment,
       username,
     }
-    const res = await fetch(`${import.meta.env.PUBLIC_BASE_URL}/postcomments`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          form.reset()
-          alert('Comment posted successfully / Comentario publicado con éxito')
-        } else {
-          alert('Error posting comment / Error al publicar comentario')
-        }
-      })
+    // const res = await fetch(`${import.meta.env.PUBLIC_BASE_URL}/postcomments`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.success) {
+    //       form.reset()
+    //       alert('Comment posted successfully / Comentario publicado con éxito')
+    //     } else {
+    //       alert('Error posting comment / Error al publicar comentario')
+    //     }
+    //   })
   })
 
 </script>
