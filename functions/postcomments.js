@@ -9,7 +9,6 @@ export async function onRequestPost(context) {
     }
     const uuid = crypto.randomUUID();
     const pretty = JSON.stringify({ uuid, ...json }, null, 2);
-    // Add the comment to the KV store called comments_db
     await env.comments_db.put(uuid, pretty, {
       metadata: { createdAt: Date.now() },
     });
