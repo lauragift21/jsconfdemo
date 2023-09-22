@@ -9,7 +9,6 @@ export async function onRequestPost(context) {
     }
     const uuid = crypto.randomUUID();
     const pretty = JSON.stringify({ uuid, ...json }, null, 2);
-    // Add the comment to the KV store called comments_db
     await env.comments_db.put(uuid, pretty, {
       metadata: { createdAt: Date.now() },
     });
@@ -19,8 +18,9 @@ export async function onRequestPost(context) {
       },
     });
   } catch (error) {
-    return new Response('Error parsing JSON content', {
-      status: 400,
+    console.error('Error processing the request:', error);
+    return new Response('Internal Server Error', {
+      status: 500,
     });
   }
 };

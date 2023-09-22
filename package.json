@@ -9,15 +9,19 @@
     "build": "astro build",
     "preview": "wrangler pages dev ./dist",
     "astro": "astro",
-    "dev:kv": "wrangler pages dev functions/ --local --persist --compatibility-date=2023-02-02 --kv=comments_db"
+    "dev:kv": "wrangler pages dev functions/ --compatibility-date=2023-02-02 --kv=comments_db",
+    "pages:dev": "wrangler pages dev --compatibility-date=2023-09-13 --kv=comments_db --persist-to .wrangler/state --proxy 3000 -- astro dev ",
+    "pages:deploy": "astro build && wrangler pages deployment create ./dist"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^6.1.1",
     "@astrojs/tailwind": "^3.0.1",
     "astro": "^2.0.6",
+    "nanostores": "^0.9.3",
     "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
-    "better-sqlite3": "^7.6.2"
+    "better-sqlite3": "^7.6.2",
+    "wrangler": "^2.9.0"
   }
 }

@@ -1,6 +1,6 @@
 export async function onRequest(context) {
   return new Response(JSON.stringify({
-    message: 'Hello JSConf Chile!',
+    message: 'Hello PeerPoint Amsterdam!',
     date: `${new Date().toDateString()} : ${new Date().toLocaleTimeString()}`,
     })
   );
